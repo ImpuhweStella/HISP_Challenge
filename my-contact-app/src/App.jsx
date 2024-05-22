@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
 import DataDisplay from './components/DataDisplay';
-import Chart from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -17,27 +17,20 @@ const App = () => {
     <div>
       <Header />
       <DataDisplay data={data} />
-      <Chart data={data} />
+      <Bar
+        data={{
+          labels: data.map((user) => user.name),
+          datasets: [{
+            label: 'User IDs',
+            data: data.map((user) => user.id),
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        }}
+      />
     </div>
   );
 };
 
 export default App;
-//  // Sample data for demonstration
-//  const chartData = [
-//   { label: 'A', value: 10 },
-//   { label: 'B', value: 20 },
-//   { label: 'C', value: 15 },
-// ];
-
-// const contactData = [
-//   { id: 1, name: 'John Doe', email: 'john@example.com' },
-//   { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
-// ];
-
-// return (
-//   <div>
-//     <Header />
-//     <ChartComponent data={chartData} />
-//     <DataDisplay data={contactData} />
-//   </div>
