@@ -6,7 +6,7 @@ const ChartComponent = ({ data }) => {
   const chartInstance = useRef(null);
 
   useEffect(() => {
-    if (!chartRef.current) return;
+    if (!chartRef.current || !data.length) return;
 
     if (chartInstance.current) {
       chartInstance.current.destroy();
@@ -26,15 +26,8 @@ const ChartComponent = ({ data }) => {
         }]
       },
       options: {
-        scales: {
-          x: {
-            type: 'category',
-            labels: data.map(item => item.label),
-          },
-          y: {
-            // Other y-axis configuration
-          }
-        }
+        indexAxis: 'y',
+        responsive: true
       }
     });
 
