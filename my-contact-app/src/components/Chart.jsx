@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Chart } from 'react-chartjs-2';
 
 const ChartComponent = ({ data }) => {
   const chartRef = useRef(null);
@@ -7,6 +7,9 @@ const ChartComponent = ({ data }) => {
 
   useEffect(() => {
     if (!chartRef.current || !data.length) return;
+
+    // Register the category scale
+    Chart.register(Chart.controllers.bar, Chart.scaleService.getScaleConstructor('category'));
 
     if (chartInstance.current) {
       chartInstance.current.destroy();
