@@ -23,3 +23,21 @@ const App = () => {
 };
 
 export default App;
+//  // Sample data for demonstration
+//  const chartData = [
+//   { label: 'A', value: 10 },
+//   { label: 'B', value: 20 },
+//   { label: 'C', value: 15 },
+// ];
+
+// const contactData = [
+//   { id: 1, name: 'John Doe', email: 'john@example.com' },
+//   { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
+// ];
+
+// return (
+//   <div>
+//     <Header />
+//     <ChartComponent data={chartData} />
+//     <DataDisplay data={contactData} />
+//   </div>
